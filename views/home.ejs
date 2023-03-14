@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Golf Courses'}) %>
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <section class="hero">
+            <h2>Find A golf course to play</h2>
+            <a href="/courses" class="btn">Find Now</a>
+        </section>
+
+        <section class="about">
+            <h2>About Us</h2>
+            <p> This app is designed to help you find the perfect course to play near you! Whether you have been playing for a while or have just started playing
+                we will help you find a course that makes playing more fun based on your skill level.
+            </p>
+            <a href="/about" class="btn">Learn More</a>
+        </section>
+
+        <section class="featured-courses">
+            <h2>Featured Courses</h2>
+            <ul class="course-grid">
+                <% for (let course of courses) { %>
+                <li>
+                    <figure>
+                        <img src="<%= course.photo %>" alt="course1">
+                    </figure>
+                    <figcaption>
+                        <div class="featured-info">
+                            <h3><%= course.name %></h3>
+                            <p>Difficulty: <%= course.difficulty %></p>
+                        </div>
+                        <a href="/courses/<%= course._id %>" class="btn">Play Now</a>
+                    </figcaption>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs', {title: 'My Creations | Golf Course'}) %>
+    <link rel="stylesheet" href="/styles/courseDetails.css">
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <section class="application">
+        <h1>Creator: <%= creation.creatorName %></h1>
+        <table>
+            <tr>
+                <th>
+                    <h2>Email:</h2>
+                </th>
+                <td>
+                    <h2><%= creation.creatorEmail %></h2>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h2>Phone:</h2>
+                </th>
+                <td>
+                    <h2><%= creation.creatorPhone %></h2>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h2>Number of Creations:</h2>
+                </th>
+                <td>
+                    <h2><%= creation.ownedCreations %></h2>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h2>Date submitted:</h2>
+                </th>
+                <td>
+                    <h2><%= creation.creationDate.toLocaleDateString() %></h2>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

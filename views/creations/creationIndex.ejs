@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs', {title: 'My Creations | Golf Courses'}) %>
+    <link rel="stylesheet" href="/styles/courseIndex.css">
+</head>
+
+<body>
+    <%- include('../partials/nav.ejs') %>
+
+    <main>
+        <section class="listings">
+            <ul>
+                <% for (let Creation of creations) { %>
+                <li>
+                    <h4><%= creation.creatorName %> - <%= creation.creatorEmail %></h4>
+                    <p>Created: <%= creation.creationDate %></p>
+                    <a href="/creations/<%= app._id %>">Read More</a>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

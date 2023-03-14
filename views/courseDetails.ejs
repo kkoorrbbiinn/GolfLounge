@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `${course.name} | Golf Courses`}) %>
+    <link rel="stylesheet" href="/styles/courseDetails.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div>
+        <img src="<%= course.photo %>">
+        <h2 class="course"><%= course.name %></h2>
+        <section>
+            <p><strong>Price:</strong> <%= course.price %></p>
+            <p><strong>Difficulty:</strong> <%= course.difficulty %></p>
+            <p><strong>Rating:</strong> <%= course.rating %></p>
+            <p><strong>Location:</strong> <%= `${course.city}, ${course.state}` %></p>
+            <p><strong>Description:</strong> <%= course.description %></p>
+        </section>
+
+        <section class="actions">
+            <button class="btn"><a href="/courses/<%= course._id %>/edit">Edit</a></button>
+            <form method="POST" action="/courses/<%= course._id %>?_method=DELETE">
+                <input class="btn" type="submit" value="Delete" />
+            </form>
+        </section>
+        
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

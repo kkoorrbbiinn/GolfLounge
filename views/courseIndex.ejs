@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Golf Courses'}) %>
+    <link rel="stylesheet" href="/styles/courseIndex.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <section class="listings">
+            <h1>Available Courses</h1>
+            <ul>
+                <% for (let course of courses) { %>
+                <li>
+                    <figure>
+                        <img src="<%= course.photo %>">
+                        <figcaption>
+                            <h4><%= course.name %></h4>
+                            <p>$<%= course.price %> <%= course.city %>, <%= course.state %></p>
+                            <a href="/courses/<%= course._id %>">Learn More</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

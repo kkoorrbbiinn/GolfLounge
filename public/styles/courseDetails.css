@@ -1,0 +1,52 @@
+div {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 4vh auto;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
+img {
+    width: 60%;
+    min-width: 300px;
+    height: 30%;
+    min-height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.pet-name {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+section {
+    text-align: left;
+    margin: 0 20%;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.featured {
+    background-color: #ffd700;
+}
+
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn a {
+    color: #fff;
+}
