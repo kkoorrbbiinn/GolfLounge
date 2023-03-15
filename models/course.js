@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const reviewSchema = require('./creation.js')
+const creationSchema = require('./creation.js')
 
 const courseSchema = new mongoose.Schema({
     name: String,
@@ -13,7 +13,7 @@ const courseSchema = new mongoose.Schema({
     dateAdded: { type: Date, default: Date.now },
     isFeatured: Boolean,
 
-        reviews: [reviewSchema]
+        creation: [creationSchema]
 });
 
 module.exports = mongoose.model('Course', courseSchema);

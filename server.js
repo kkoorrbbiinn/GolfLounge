@@ -10,9 +10,10 @@ const db = require('./models');
 
 const coursesCtrl = require('./controllers/courses');
 const reviewsCtrl = require('./controllers/reviews');
-const courses = require('./models/seed');
 const creationCtrl = require('./controllers/creations');
 const reviews = require('./models/seed');
+const course = require('./models/course');
+
 
 const app = express();
 
@@ -31,7 +32,7 @@ app.use(express.static('public'))
 app.use(connectLiveReload());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use('/creations', creationCtrl)
+
 
 
 
@@ -45,17 +46,6 @@ app.get('/', function (req, res) {
             })
         })
 });
-
-app.get('/', function (req, res) {
-    db.Review.find({isFeatured: true}, { description: true })
-        .then(reviews => {
-            // console.log(courses);
-            res.render('home', {
-                reviews: reviews
-            })
-        })
-});
-
 
 app.listen(process.env.PORT, function () {
     console.log('Express is listening to port', process.env.PORT);
@@ -81,6 +71,7 @@ app.get('/about', function (req, res) {
 
 app.use('/courses', coursesCtrl);
 app.use('/reviews', reviewsCtrl);
+app.use('/newForm', creationCtrl);
 
 app.get('*', function (req, res) {
     res.send('404 Error: Page Not Found')

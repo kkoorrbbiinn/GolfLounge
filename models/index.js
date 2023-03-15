@@ -11,5 +11,5 @@ module.exports = {
     Course: require('./course'),
     seedCourses: require('./seed'),
     Review: require('./review'),
-    seedCourses: require('./seed')
+    User: require('./user')
 }
