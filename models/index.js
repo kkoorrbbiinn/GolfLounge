@@ -9,5 +9,7 @@ const mongodbUri = process.env.MONGODBURI;
 
 module.exports = {
     Course: require('./course'),
+    seedCourses: require('./seed'),
+    Review: require('./review'),
     seedCourses: require('./seed')
 }

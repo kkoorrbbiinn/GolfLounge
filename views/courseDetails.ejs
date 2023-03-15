@@ -7,15 +7,21 @@
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <div class="globalNav">
+        <%- include('./partials/globalNav.ejs') %>
+    </div>
 
-    <div>
-        <img src="<%= course.photo %>">
+    <div class="nav">
+        <%- include('./partials/nav.ejs') %>
+    </div>
+
+    <div class="courseDetailsDiv">
+        <img src="<%= course.photo %>" class="detailsImg">
         <h2 class="course"><%= course.name %></h2>
         <section>
-            <p><strong>Price:</strong> <%= course.price %></p>
+            <p><strong>Price:</strong> $<%= course.price %></p>
             <p><strong>Difficulty:</strong> <%= course.difficulty %></p>
-            <p><strong>Rating:</strong> <%= course.rating %></p>
+            <p><strong>Rating:</strong> <%= course.rating %> of 5</p>
             <p><strong>Location:</strong> <%= `${course.city}, ${course.state}` %></p>
             <p><strong>Description:</strong> <%= course.description %></p>
         </section>

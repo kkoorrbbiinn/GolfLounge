@@ -9,8 +9,10 @@ const methodOverride = require('method-override');
 const db = require('./models');
 
 const coursesCtrl = require('./controllers/courses');
+const reviewsCtrl = require('./controllers/reviews');
 const courses = require('./models/seed');
-const creationCtrl = require('./controllers/creations')
+const creationCtrl = require('./controllers/creations');
+const reviews = require('./models/seed');
 
 const app = express();
 
@@ -35,10 +37,21 @@ app.use('/creations', creationCtrl)
 
 
 app.get('/', function (req, res) {
-    db.Course.find({ description: true })
+    db.Course.find({isFeatured: true}, { description: true })
         .then(courses => {
+            // console.log(courses);
             res.render('home', {
                 courses: courses
+            })
+        })
+});
+
+app.get('/', function (req, res) {
+    db.Review.find({isFeatured: true}, { description: true })
+        .then(reviews => {
+            // console.log(courses);
+            res.render('home', {
+                reviews: reviews
             })
         })
 });
@@ -52,11 +65,11 @@ app.get('/seed', function (req, res) {
     
     db.Course.deleteMany({})
         .then(removedCourses => {
-            console.log(`Removed ${removedCourses.deletedCount} tweets`)
+            // console.log(`Removed ${removedCourses.deletedCount} tweets`)
             
             db.Course.insertMany(db.seedCourses)
                 .then(addedCourses => {
-                    console.log(`Added ${addedCourses.length} courses to be played`)
+                    // console.log(`Added ${addedCourses.length} courses to be played`)
                     res.json(addedCourses)
                 })
         })
@@ -66,7 +79,8 @@ app.get('/about', function (req, res) {
     res.send('You\'ve hit the about route')
 });
 
-app.use('/courses', coursesCtrl)
+app.use('/courses', coursesCtrl);
+app.use('/reviews', reviewsCtrl);
 
 app.get('*', function (req, res) {
     res.send('404 Error: Page Not Found')

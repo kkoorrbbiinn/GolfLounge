@@ -4,10 +4,19 @@
 <head>
     <%- include('./partials/head.ejs', {title: 'Golf Courses'}) %>
     <link rel="stylesheet" href="/styles/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <div class="globalNav">
+        <%- include('./partials/globalNav.ejs') %>
+    </div>
+
+    <div class="nav">
+        <%- include('./partials/nav.ejs') %>
+    </div>
 
     <main>
         <section class="hero">
@@ -29,14 +38,14 @@
                 <% for (let course of courses) { %>
                 <li>
                     <figure>
-                        <img src="<%= course.photo %>" alt="course1">
+                        <img src="<%= course.photo %>" alt="featuredCourses">
                     </figure>
                     <figcaption>
                         <div class="featured-info">
                             <h3><%= course.name %></h3>
-                            <p>Difficulty: <%= course.difficulty %></p>
+                            <p>From: $<%= course.price %></p>
                         </div>
-                        <a href="/courses/<%= course._id %>" class="btn">Play Now</a>
+                        <a href="/courses/<%= course._id %>" class="btn">Read More</a>
                     </figcaption>
                 </li>
                 <% } %>

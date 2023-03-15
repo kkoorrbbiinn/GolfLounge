@@ -20,17 +20,16 @@
 
     <main>
         <section class="listings">
-            <h1>Available Courses</h1>
+            <h1>Reviews</h1>
             <ul>
-                <% for (let course of courses) { %>
+                <% for (let review of reviews) { %>
                 <li>
                     <figure>
-                        <img src="<%= course.photo %>">
                         <figcaption>
-                            <h4><%= course.name %></h4>
-                            <p class="locations"><%= course.city %>, <%= course.state %></p>
-                            <p>From $<%= course.price %> (USD)</p>
-                            <a href="/courses/<%= course._id %>">Learn More</a>
+                            <h4><%= review.name %></h4>
+                            <p class="locations"><%= review.title %></p>
+                            <p>From $<%= review.rating %> (USD)</p>
+                            <a href="/reviews/<%= review._id %>">Read More</a>
                         </figcaption>
                     </figure>
                 </li>

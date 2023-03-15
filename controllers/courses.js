@@ -34,8 +34,14 @@ router.get('/:id', function (req, res) {
 })
 
 router.get('/:id/edit', (req, res) => {
+    // console.log('from');
     db.Course.findById(req.params.id)
-        .then(course => res.send('You\'ll be editing course ' + course._id))
+        .then(course => {
+            // console.log(course, 'in here');
+            res.render('editForm', {
+                course: course
+        })
+    })
 })
 
 router.put('/:id', (req, res) => {
