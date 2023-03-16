@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head.ejs', {title: 'Create an Course | Golf Courses'}) %>
+    <link rel="stylesheet" href="/styles/newReviewForm.css">
+</head>
+
+<body>
+    <div class="globalNav">
+        <%- include('../partials/globalNav.ejs') %>
+    </div>
+
+    <div class="nav">
+        <%- include('../partials/nav.ejs') %>
+    </div>
+
+    <section class="hero">
+        <h2>Course Review</h2>
+        <h4><i>You're about to a review for <a class="courseName" href="/courses/<%= course._id %>"><%= course.name %></a></i></h4>
+    </section>
+
+    <form action="/reviews/newReviewForm/<%= course._id %>" method="POST">
+        <label for="reviewerName">Name:</label><br>
+        <input type="text" id="reviewerName" name="reviewerName" required><br>
+
+        <label for="reviewTitle">Title:</label><br>
+        <input type="text" id="reviewerTitle" name="reviewerTitle" required><br>
+
+        <label for="reviewRating">Rating:</label><br>
+        <input type="number" id="reviewRating" name="reviewRating" required><br>
+
+        <label for="reviewDescription">Description:</label><br>
+        <textarea id="reviewDescription" name="reviewDescription" required></textarea><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

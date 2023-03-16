@@ -12,11 +12,11 @@
     <main>
         <section class="listings">
             <ul>
-                <% for (let Creation of creations) { %>
+                <% for (let review of reviews) { %>
                 <li>
-                    <h4><%= creation.creatorName %> - <%= creation.creatorEmail %></h4>
-                    <p>Created: <%= creation.creationDate %></p>
-                    <a href="/creations/<%= app._id %>">Read More</a>
+                    <h4><%= review.reviewerName %> - <%= review.reviewerEmail %></h4>
+                    <p>Created: <%= review.reviewDate %></p>
+                    <a href="/reviews/<%= app._id %>">Read More</a>
                 </li>
                 <% } %>
             </ul>

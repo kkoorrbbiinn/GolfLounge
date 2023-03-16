@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
 })
 
 router.get('/new', (req, res) => {
-    res.send('You\'ve hit the new route!')
+    res.render('newCourse')
 })
 
 router.post('/', (req, res) => {

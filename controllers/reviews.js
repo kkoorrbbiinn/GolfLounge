@@ -1,61 +1,63 @@
 const express = require('express')
+
 const router = express.Router()
 
-const db = require('../models')
-const review = require('../models/review')
-const reviews = require('../models/seed')
+const db = require('../models');
+const course = require('../models/course');
+const courses = require('../models/seed');
 
-router.get('/', function (req, res) {
-    db.Review.find({})
-        .then(reviews => {
-            res.render('reviewsIndex', {
-                reviews: reviews
+router.get('/', (req, res) => {
+    db.Course.find({}, { reviews: true, _id: false })
+        .then(courses => {
+
+            const flatList = []
+            for (let course of courses) {
+                flatList.push(...course.reviews)
+            }
+            res.render('reviews/reviewIndex.ejs', {
+                apps: flatList
             })
         })
-})
+});
 
-router.get('/new', (req, res) => {
-    res.send('You\'ve hit the new route!')
-})
-
-router.post('/', (req, res) => {
-    db.Review.create(req.body)
-        .then(review => res.json(review))
-})
-
-router.get('/:id', function (req, res) {
-    db.Review.findById(req.params.id)
-        .then(review => {
-            res.render('reviewsDetails', {
-                review: review
-            })
-        })
-        .catch(() => res.send('404 Error: Page Not Found'))
-})
-
-router.get('/:id/edit', (req, res) => {
-    // console.log('from');
-    db.Review.findById(req.params.id)
+router.get('/new/:courseId', (req, res) => {
+    db.Course.findById(req.params.courseId)
         .then(course => {
-            // console.log(course, 'in here');
-            res.render('editReviewsForm', {
-                review: review
+            res.render('reviews/newReviewForm', { course: course })
         })
-    })
+        .catch(() => res.render('404'))
 })
 
-router.put('/:id', (req, res) => {
-    db.Review.findByIdAndUpdate(
-        req.params.id,
-        req.body,
+router.post('/create/:courseId', (req, res) => {
+    db.Course.findByIdAndUpdate(
+        req.params.courseId,
+        { $push: { reviews: req.body } },
         { new: true }
     )
-        .then(review => res.json(review))
-})
+        .then(() => res.redirect('/reviews'))
+});
+
+router.get('/:id', (req, res) => {
+    db.Course.findOne(
+        { 'reviews._id': req.params.id },
+        { 'reviews.$': true, _id: false }
+    )
+        .then(course => {
+
+            res.render('reviews/reviewDetails', {
+                app: course.reviews[0]
+            })
+        })
+        .catch(() => res.render('404'))
+});
 
 router.delete('/:id', (req, res) => {
-    db.Review.findByIdAndRemove(req.params.id)
-        .then(review => res.send('You\'ve deleted review ' + review._id))
-})
+    db.Course.findOneAndUpdate(
+        { 'reviews._id': req.params.id },
+        { $pull: { reviews: { _id: req.params.id } } },
+        { new: true }
+    )
+        .then(() => res.redirect('/reviews'))
+});
 
 module.exports = router

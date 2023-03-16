@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `Golf Lounge`}) %>
+    <link rel="stylesheet" href="/styles/about.css">
+</head>
+
+<body>
+    <div class="globalNav">
+        <%- include('./partials/globalNav.ejs') %>
+    </div>
+
+    <div class="nav">
+        <%- include('./partials/nav.ejs') %>
+    </div>
+
+    <main>
+        <section class="hero">
+            <h2>About Us</h2>
+            <img src="/assets/GolfLoungeLogo.jpg">
+        </section>
+
+        <section class="content">
+            <h2>Our Mission</h2>
+            <p>If you're a golf enthusiast, you know that finding a great course to play can be a challenge. That's where Golf Lounge comes in. We specialize in helping you find golf courses near you, so you can spend less time searching and more time playing. Our platform allows you to search for courses based on location, course type, and difficulty level, so you can easily find a course that suits your needs. We also provide detailed information about each course, including course features, pricing, and rating.</p>
+            <p>As a golf lover myself, I have had the pleasure of playing some amazing courses around the world. Some of my favorite courses include TPC Scottsdale in Arizona, which offers stunning views, and Quinero Golf Club, which is rated one of the top courses in Arizona. Closer to home, I love playing at Scotch Hall in North Carolina, a course designed by Arnold Palmer. These courses offer unique challenges and experiences that any avid golfer will appreciate.</p>
+            <p>At Golf Lounge, we also believe in the power of community. That's why we encourage our users to leave reviews about the courses they play. Whether you had an amazing round or encountered some challenges on the course, your feedback can help other golfers make informed decisions about where to play. We provide a platform for golfers to share their experiences and connect with other players who share their passion for the game. So why not join our community today and start discovering new courses and sharing your love for golf with others?</p>
+            <h2>Our Values</h2>
+            <ul>
+                <li>Accessibility: We believe that everyone should have access to quality golf courses. We prioritize making it easy for golfers of all levels to find courses near them and learn more about each course's features and pricing.</li>
+                <li>Community: We believe that golf is more than just a game, it's a community. Our platform encourages golfers to share their experiences, connect with others who love the game, and leave reviews to help fellow golfers make informed decisions.</li>
+                <li>Integrity: We understand the importance of trust and honesty in the golfing community. That's why we strive to provide accurate and up-to-date information about each course, so golfers can make informed decisions based on reliable information.</li>
+                <li>Passion: At our golf company, we are passionate about the game of golf. We love discovering new courses, experiencing unique challenges, and sharing our love for the game with others. We believe that this passion is contagious and can inspire others to join the golfing community and share in the joy of the game.</li>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

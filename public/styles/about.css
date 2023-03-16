@@ -1,24 +1,27 @@
-/* Center the main content */
 main {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: white;
+    background-color: #242325;
 }
 
-/* Style the content section */
 .content {
     margin-top: 50px;
     line-height: 1.5;
+    background-color: #141414;
 }
 
 .content h2 {
     font-size: 36px;
     margin-bottom: 20px;
+    background-color: black;
+    color: white;
 }
 
 .content p {
     margin-bottom: 20px;
+    color: white;
+    padding: 5px;
 }
 
 .content ul {
@@ -29,7 +32,56 @@ main {
 
 .content li:before {
     content: "✓ ";
-    color: #004080;
+    color: #DC965A;
     font-weight: bold;
     margin-right: 10px;
+    padding: 5px;
+}
+
+.content li {
+    content: "✓ ";
+    color: white;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+img {
+    height: 100%;
+    width: auto;
+}
+
+.hero {
+    background-color: black;
+}
+
+.hero h2 {
+    background-color: black;
+    color: white;
+}
+
+.nav header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav header h1 {
+    color: white;
+}
+
+.globalNav header {
+    font-size: 2.5rem;
+    background-color: #141414;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.globalNav header h1 {
+    font-size: 1rem;
+    color: rgba(355, 355, 355, 0.6);
 }

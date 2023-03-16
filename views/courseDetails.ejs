@@ -31,6 +31,7 @@
             <form method="POST" action="/courses/<%= course._id %>?_method=DELETE">
                 <input class="btn" type="submit" value="Delete" />
             </form>
+            <button class="btn"><a href="/reviews/new/<%= course._id %>">Add Review</a></button>
         </section>
         
     </div>

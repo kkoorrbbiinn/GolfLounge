@@ -9,9 +9,9 @@ const methodOverride = require('method-override');
 const db = require('./models');
 
 const coursesCtrl = require('./controllers/courses');
+// const reviewsCtrl = require('./controllers/reviews');
 const reviewsCtrl = require('./controllers/reviews');
-const creationCtrl = require('./controllers/creations');
-const reviews = require('./models/seed');
+// const reviews = require('./models/seed');
 const course = require('./models/course');
 
 
@@ -38,9 +38,9 @@ app.use(methodOverride('_method'));
 
 
 app.get('/', function (req, res) {
-    db.Course.find({isFeatured: true}, { description: true })
+    db.Course.find({isFeatured: true})
         .then(courses => {
-            // console.log(courses);
+            console.log(courses);
             res.render('home', {
                 courses: courses
             })
@@ -66,13 +66,13 @@ app.get('/seed', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-    res.send('You\'ve hit the about route')
+    res.render('about')
 });
 
 app.use('/courses', coursesCtrl);
+// app.use('/reviews', reviewsCtrl);
 app.use('/reviews', reviewsCtrl);
-app.use('/newForm', creationCtrl);
 
 app.get('*', function (req, res) {
-    res.send('404 Error: Page Not Found')
+    res.render('404')
 });
