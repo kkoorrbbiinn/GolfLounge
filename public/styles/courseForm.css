@@ -15,6 +15,10 @@ form {
     min-width: 300px;
     margin: 0 auto 2rem auto;
     background-color: #242325;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 label {
@@ -86,4 +90,32 @@ input[type="submit"]:hover {
 
 #rating {
     color: white;
+}
+
+.nav header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav header h1 {
+    color: white;
+}
+
+.globalNav header {
+    font-size: 2.5rem;
+    background-color: #141414;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.globalNav header h1 {
+    font-size: 1rem;
+    color: rgba(355, 355, 355, 0.6);
+    background-color: #141414;
 }
