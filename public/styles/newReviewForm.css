@@ -56,19 +56,19 @@ input[type="submit"]:hover {
     border: 1px solid #333;
 }
 
-#name {
+#reviewerName {
     color: white;
 }
 
-#description {
+#reviewDescription {
     color: white;
 }
 
-#photo {
+#reviewerTitle {
     color: white;
 }
 
-#state {
+#reviewRating {
     color: white;
 }
 

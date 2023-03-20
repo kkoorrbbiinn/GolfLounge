@@ -34,7 +34,7 @@ router.post('/create/:courseId', (req, res) => {
         { $push: { reviews: req.body } },
         { new: true }
     )
-        .then(() => res.redirect('/reviews'))
+        .then(() => res.redirect('/reviews/reviewIndex'))
 });
 
 router.get('/:id', (req, res) => {
@@ -43,8 +43,7 @@ router.get('/:id', (req, res) => {
         { 'reviews.$': true, _id: false }
     )
         .then(course => {
-
-            res.render('reviews/reviewDetails', {
+            res.render('/reviews/reviewDetails', {
                 app: course.reviews[0]
             })
         })

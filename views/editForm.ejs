@@ -33,7 +33,6 @@
         <label for="price">Price:</label>
         <input type="number" id="price" name="price" value="<%= course.price %>">
         <br>
-        <!-- Species input -->
         <label for="difficulty">Difficulty:</label>
         <select id="difficulty" name="difficulty" required>
             <% if (course.value === "difficult") { %>
@@ -45,11 +44,9 @@
             <% } %>
         </select>
         <br>
-        <!-- City input -->
         <label for="city">City:</label>
         <input type="text" id="city" name="city" value="<%= course.city %>" required>
         <br>
-        <!-- State input -->
         <label for="state">State or province:</label>
         <select id="state" name="state">
             <optgroup label="United States">
@@ -122,11 +119,9 @@
             </optgroup>
         </select>
         <br>
-        <!-- Photo input -->
         <label for="photo">Photo (URL):</label>
         <input type="text" id="photo" name="photo" value="<%= course.photo %>" required>
         <br>
-        <!-- Description input -->
         <label for="description">Description:</label>
         <textarea id="description" name="description" required><%= course.description %></textarea>
         <br>

@@ -9,9 +9,7 @@ const methodOverride = require('method-override');
 const db = require('./models');
 
 const coursesCtrl = require('./controllers/courses');
-// const reviewsCtrl = require('./controllers/reviews');
 const reviewsCtrl = require('./controllers/reviews');
-// const reviews = require('./models/seed');
 const course = require('./models/course');
 
 
@@ -70,7 +68,6 @@ app.get('/about', function (req, res) {
 });
 
 app.use('/courses', coursesCtrl);
-// app.use('/reviews', reviewsCtrl);
 app.use('/reviews', reviewsCtrl);
 
 app.get('*', function (req, res) {
